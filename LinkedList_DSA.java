@@ -1,106 +1,149 @@
 package com.company;
 
-public class testing {
-    int size =1;
-     Node head;
-   static class Node{
-        String data;
+public class LLPractice {
+    public Node head;
+    public int size=0;
+    //Create Node..............
+    class Node{
+        int data;
         Node next;
-            Node(String data)
-            {
-                this.data =data;
-                this.next=null;
+            public Node(int data){
+                this.data = data;
+                this.next =null;
             }
     }
-    public void insertFirst(String data){
-        Node createNode = new Node(data);
-        if (head == null){
-            head = createNode;
-            return;
-        }
-
-        createNode.next=head;
-        head=createNode;
+//begning insertNode
+    public void insertFirst(int data){
+        Node newNode = new Node(data);
         size++;
-    }
-    public void insertIndex(int Ind, String data){
-       Node createNode = new Node(data);
-       Node currentNode= head;int i=1;
-       while(i++!=Ind){
-           currentNode=currentNode.next;
-       }
-       createNode.next=currentNode.next;
-       currentNode.next=createNode;
-       size++;
-
+        if (head==null){
+            head = newNode;
+            return;
+        }
+        newNode.next=head;
+        head=newNode;
 
     }
-    public void insertLast(String data){
-       Node createNode = new Node(data);
-       Node secondLast = head;
-       Node currentNode= head;
-       while(currentNode.next != null){
-          currentNode = currentNode.next;
-       }
-       currentNode.next = createNode;
-       createNode.next=null;
-       size++;
-    }
-    public void firstRemove(){
-        if (head== null) {
-            System.out.println("Node is Empty");
+//Last inserted..
+    public void insertLast(int data){
+        Node newNode = new Node(data);
+        Node currentNode = head;
+        size++;
+        if (head==null){
+            head = newNode;
             return;
         }
-        head=head.next;
-        size--;
-    }
-    public void lastRemove(){
-        if (head== null) {
-            System.out.println("Node is Empty");
-            return;
-        }
-        if (head.next==null)
-        {
-            System.out.println("don't deleted.. it's first node.");
-            return;
-        }
-        Node lastNode =head.next;
-        Node currentNode =head;
-        while(lastNode.next != null){
-            lastNode = lastNode.next;
+        while(currentNode.next !=null){
             currentNode=currentNode.next;
         }
-        currentNode.next=null;
+        currentNode.next=newNode;
+        newNode.next=null;
+    }
+    //insertofindex
+    public void insertOfIndex(int Ind, int data){
+        Node newNode = new Node(data);
+        int n=1;
+        if (head==null){
+            System.out.println("LLinkedList is Empty");
+            return;
+        }else if(Ind>size){
+            System.out.println("total index of LinkedList is = "+size+" --and your index is = "+Ind+" So it is not inserted");
+            return;
+        }
+        Node currentNode = head;
+        Node ultraNextNode= head.next;
+        size++;
+        while(n!=Ind){
+            currentNode=currentNode.next;
+            ultraNextNode=ultraNextNode.next;
+            n++;
+        }
+
+
+        currentNode.next = newNode;
+        newNode.next=ultraNextNode;
+    }
+ //remove fist node-----------
+    public void firstRemove(){
+        if(head==null){
+            System.out.println("LinkedList is null");
+            return;
+        }
         size--;
+        head= head.next;
+    }
+//remove last node----------------
+    public void lastRemove(){
+        if (head==null){
+            System.out.println("LinkedList is Empty");
+            return;
+        }else if (head.next==null){
+            size--;
+
+            head=null;
+            System.out.println("removed node");
+            return;
+        }
+        size--;
+        Node lastNode= head.next;
+        Node secondLastNode = head;
+
+        while(lastNode.next != null){
+            lastNode = lastNode.next;
+            secondLastNode=secondLastNode.next;
+        }
+        secondLastNode.next=null;
+    }
+//remove indexof Node-------------------------
+    public void removeOfIndex(int Ind){
+        if (head==null){
+            System.out.println("LinkedList is Empty");
+            return;
+        }
+        else if(Ind>size){
+            System.out.println("total index of LinkedList is = "+size+" --and your index is = "+Ind+" So it is not deleted");
+            return;
+        }
+        size--;
+        Node currentNode = head;
+        Node futureNode= head.next;
+        int n=1;
+        while(n!=Ind){
+            currentNode = currentNode.next;
+            futureNode= futureNode.next;
+            n++;
+        }
+        currentNode.next=futureNode.next;
 
     }
-    public void printLL(){
-       if (head==null){
-           System.out.println("node is empty................");
-           return;
-       }
+//print Linked List-----------    
+    public void printlist(){
+        if (head==null){
+            return;
+        }
         Node currentNode = head;
-        while(currentNode != null){
-            System.out.print(currentNode.data+ " -> ");
+        while(currentNode!=null){
+            System.out.print(currentNode.data+" -> ");
             currentNode = currentNode.next;
         }
-        System.out.println("null");
-   }
-   public void printSize(){
-       System.out.println(size);
-   }
+        System.out.println("NULL");
+        System.out.println(" Total size = "+ size);
+    }
     public static void main(String[] args) {
-        testing t = new testing();
-        t.insertFirst("saood");
-        t.insertFirst("ood");
-        t.insertFirst("ahmad");
-        t.insertLast("B.C.A.");
-        t.insertIndex(4,"choudhary");
 
-        t.printLL();
-        t.lastRemove();
-        t.printLL();
-        t.printSize();
+        LLPractice l = new LLPractice();
+        l.insertFirst(45);
+        l.insertFirst(4587);
+        l.insertFirst(888);
+        l.insertLast(980);
+        l.insertOfIndex(4,1000);
+        l.printlist();
+        l.removeOfIndex(2);
+//        l.firstRemove();
+//        l.lastRemove();
+        System.out.println("------------------------------------------------");
+        l.printlist();
+
 
     }
 }
