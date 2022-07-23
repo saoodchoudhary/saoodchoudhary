@@ -43,16 +43,19 @@ public class LLPractice {
     public void insertOfIndex(int Ind, int data){
         Node newNode = new Node(data);
         int n=1;
-        if (head==null){
-            System.out.println("LLinkedList is Empty");
+         size++;
+        if (head==null||Ind ==0){
+            newNode.next=head;
+            head=newNode;
             return;
         }else if(Ind>size){
             System.out.println("total index of LinkedList is = "+size+" --and your index is = "+Ind+" So it is not inserted");
             return;
         }
+       
         Node currentNode = head;
         Node ultraNextNode= head.next;
-        size++;
+       
         while(n!=Ind){
             currentNode=currentNode.next;
             ultraNextNode=ultraNextNode.next;
