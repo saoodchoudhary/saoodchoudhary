@@ -5,7 +5,7 @@
 
 - 🌱 I’m currently learning **aws**
 
-- 💬 Ask me about **MERN, aws ec2, Android**
+- 💬 Ask me about **MERN, Nextjs, aws ec2, Android**
 
 - 📫 How to reach me **saoodchoudhary9@gmail.com**
 
