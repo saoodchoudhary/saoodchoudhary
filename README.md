@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Saood Ahmad</h1>
 <h3 align="center">A passionate full stack developer from India</h3>
-<img width="100%" alt="coding" src="https://miro.medium.com/v2/resize:fit:1400/1*yw0TnheAGN-LPneDaTlaxw.gif"/>
+<img width="100%" alt="coding" src="https://proseful.imgix.net/blogs/df373414-e77c-4d3d-8c7b-35cf55f23396/images/43bc1e57-5fef-4460-bf08-4f79f3654555.gif"/>
 
 
 - 🌱 I’m currently learning **aws**
